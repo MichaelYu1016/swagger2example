@@ -8,6 +8,7 @@ import javassist.*;
 import javassist.bytecode.AnnotationsAttribute;
 import javassist.bytecode.ConstPool;
 import javassist.bytecode.annotation.Annotation;
+import javassist.bytecode.annotation.BooleanMemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -99,6 +100,13 @@ public class MapApiReader implements ParameterBuilderPlugin {
         if (ctField.getType().subclassOf(ClassPool.getDefault().get(Double.class.getName()))) {
             ann.addMemberValue("dataType",new StringMemberValue("double",constPool));
         }
+        // 设置是否必填
+        if (property.required()) {
+            ann.addMemberValue("required", new BooleanMemberValue(true,constPool));
+        }else {
+            ann.addMemberValue("required", new BooleanMemberValue(false,constPool));
+        }
+        
         ann.addMemberValue("example",new StringMemberValue(property.example(),constPool));
         attr.addAnnotation(ann);
         ctField.getFieldInfo().addAttribute(attr);

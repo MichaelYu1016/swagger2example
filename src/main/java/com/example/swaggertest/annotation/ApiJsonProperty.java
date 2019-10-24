@@ -25,4 +25,6 @@ public @interface ApiJsonProperty {
 
     String description() default "";
 
+    boolean required() default false; // 是否必填
+
 }
