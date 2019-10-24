@@ -10,3 +10,7 @@
 2. 新增支持double类型.
 
 3. ApiJsonProperty新增notes属性用来描述该参数.
+
+## 示例
+
+clone源文件，运行后打开[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)即可看到效果.
