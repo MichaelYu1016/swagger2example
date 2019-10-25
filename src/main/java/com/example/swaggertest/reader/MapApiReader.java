@@ -60,7 +60,7 @@ public class MapApiReader implements ParameterBuilderPlugin {
     }
 
     /**
-     * 根据propertys中的值动态生成含有Swagger注解的javaBeen
+     * 根据properties中的值动态生成含有Swagger注解的javaBean
      */
     private Class createRefModel(ApiJsonProperty[] properties, String name) {
         ClassPool pool = ClassPool.getDefault();
@@ -106,7 +106,7 @@ public class MapApiReader implements ParameterBuilderPlugin {
         }else {
             ann.addMemberValue("required", new BooleanMemberValue(false,constPool));
         }
-        
+
         ann.addMemberValue("example",new StringMemberValue(property.example(),constPool));
         attr.addAnnotation(ann);
         ctField.getFieldInfo().addAttribute(attr);

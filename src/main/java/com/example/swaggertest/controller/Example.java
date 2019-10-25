@@ -2,9 +2,13 @@ package com.example.swaggertest.controller;
 
 import com.example.swaggertest.annotation.ApiJsonObject;
 import com.example.swaggertest.annotation.ApiJsonProperty;
+import com.example.swaggertest.model.User;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * 示例：展示String参数的详细参数和参数类型
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(path = "/example")
+@Api(value = "示例", tags = "示例")
 public class Example {
 
     @PutMapping("/edit/{id}")
@@ -28,4 +33,11 @@ public class Example {
                                  @RequestBody String request) {
 
     }
+
+    @PostMapping("/login")
+    @ApiOperation(value = "登录", notes = "登录接口")
+    public String login(@RequestBody User user) {
+        return "Welcome";
+    }
+
 }
