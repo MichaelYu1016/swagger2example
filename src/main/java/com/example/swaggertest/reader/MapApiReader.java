@@ -34,7 +34,7 @@ public class MapApiReader implements ParameterBuilderPlugin {
     @Autowired
     private TypeResolver typeResolver;
 
-    private final static String basePackage = "com.example.swaggertest.model.";  //动态生成的Class名
+    private static final String basePackage = "com.example.swaggertest.model.";  //动态生成的Class名
 
     @Override
     public void apply(ParameterContext parameterContext) {
@@ -103,7 +103,7 @@ public class MapApiReader implements ParameterBuilderPlugin {
         // 设置是否必填
         if (property.required()) {
             ann.addMemberValue("required", new BooleanMemberValue(true,constPool));
-        }else {
+        } else {
             ann.addMemberValue("required", new BooleanMemberValue(false,constPool));
         }
 
