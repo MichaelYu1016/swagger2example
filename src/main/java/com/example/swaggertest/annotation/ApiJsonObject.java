@@ -12,7 +12,6 @@ import java.lang.annotation.Target;
  * @date 2019-10-24
  * @modified_date 2019-10-24
  */
-
 @Target({ElementType.PARAMETER, ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ApiJsonObject {

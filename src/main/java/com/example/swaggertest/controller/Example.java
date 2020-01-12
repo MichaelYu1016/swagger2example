@@ -8,8 +8,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 /**
  * 示例：展示String参数的详细参数和参数类型
  *
